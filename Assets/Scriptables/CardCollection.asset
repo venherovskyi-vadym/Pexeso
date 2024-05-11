@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec512eab80601f4394b5dfcde9b727b, type: 3}
+  m_Name: CardCollection
+  m_EditorClassIdentifier: 
+  _cardSprites:
+  - {fileID: 1586601191, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1841953311, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1114075339, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1279044612, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -811021081, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1916228974, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -398630779, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1998311758, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1744957016, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1260049622, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1413312485, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 550031508, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 331153621, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1245431147, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1013986241, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1974624313, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1339225186, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -432429924, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1317697486, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 580834185, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1463486935, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 881954206, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 616038790, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 645609006, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 333009935, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 195022073, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1806698318, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 125448017, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 719850901, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 550440051, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1727934810, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1821692271, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1105713652, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1616242124, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -367389031, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1674242129, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -736664645, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1011557615, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1058123570, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1985414041, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -508239952, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1397453854, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 21612545, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 392603565, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1904302189, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1855105723, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1139865965, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 529083328, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -1282991489, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1857285563, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: -21776430, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  - {fileID: 1715033925, guid: 95fb53d7c3d7fff4e99bbf94cac608fe, type: 3}
+  _cardBack: {fileID: 2069963840, guid: 3bbda7d30f2eef24cb9987dc92a62cf9, type: 3}

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8c23ffe726e17b48aadfcba6cdbe709, type: 3}
+  m_Name: ScriptableInstaller
+  m_EditorClassIdentifier: 
+  _cardCollection: {fileID: 11400000, guid: 2fe5a85f1e7cc024195239efd9d768e4, type: 2}
+  _roundSettings: {fileID: 11400000, guid: 796351a7a9a284f46a381873b610389f, type: 2}
+  _cardView: {fileID: 3919452160177634705, guid: b90fa6883a9ffe14eaafa9a75cfdecd4, type: 3}
