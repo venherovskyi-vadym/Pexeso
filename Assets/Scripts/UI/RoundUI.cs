@@ -9,6 +9,8 @@ public class RoundUI : MonoBehaviour
     [SerializeField] private Button _hint;
     [SerializeField] private TextMeshProUGUI _remainingRoundTime;
     [SerializeField] private TextMeshProUGUI _cardsCollected;
+    [SerializeField] private AnimatorTrigger _winTrigger;
+    [SerializeField] private AnimatorTrigger _lostTrigger;
 
     public event Action OnBackToMenu;
     public event Action OnHint;
@@ -33,6 +35,19 @@ public class RoundUI : MonoBehaviour
     {
         _backToMenu.onClick.RemoveListener(BackToMenu);
         _hint.onClick.RemoveListener(Hint);
+    }
+
+    public void SetRoundResult(RoundResult result)
+    {
+        if (result == RoundResult.Win)
+        {
+            _winTrigger.Trigger();
+        }
+
+        if (result == RoundResult.Loose)
+        {
+            _lostTrigger.Trigger();
+        }
     }
 
     public void UpdateRemainingTime(float remainingTime)

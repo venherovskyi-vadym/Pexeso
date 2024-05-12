@@ -103,7 +103,11 @@ public class GamePresenter
             _roundUI.UpdateRemainingTime(_roundRemainingTime);
         }
 
-        _winCompletionSource.TrySetResult(RoundResult.Loose);
+        if (_winCompletionSource.Task.Status != UniTaskStatus.Succeeded)
+        {
+            _roundUI.SetRoundResult(RoundResult.Loose);
+            _winCompletionSource.TrySetResult(RoundResult.Loose);
+        }
     }
 
     public UniTask<RoundResult> WaitForResult()
@@ -226,6 +230,7 @@ public class GamePresenter
     {
         if (_matchedCards.Count == _cards.Count)
         {
+            _roundUI.SetRoundResult(RoundResult.Win);
             _winCompletionSource.TrySetResult(RoundResult.Win);
         }
     }
