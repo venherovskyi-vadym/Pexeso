@@ -1,6 +1,5 @@
 using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
 
 [CreateAssetMenu(fileName = "ScriptableInstaller", menuName = "Installers/ScriptableInstaller")]
 public class ScriptableInstaller : ScriptableObjectInstaller<ScriptableInstaller>
@@ -13,15 +12,11 @@ public class ScriptableInstaller : ScriptableObjectInstaller<ScriptableInstaller
     {
         Container.BindInstance(_cardCollection);
         Container.BindInstance(_roundSettings);
+        //Container.Bind<ISettings>().FromInstance(_roundSettings);
+        //Container.Bind<ISettingsStorage>().FromInstance(_roundSettings);
+        //Container.BindInterfacesAndSelfTo<PlayerPrefsStorage>().AsSingle();
+        Container.BindInterfacesAndSelfTo<JsonSettingsStorage>().AsSingle();
 
-        Container.BindFactory<CardView, CardView.Factory>()
-    // This means that any time Asteroid.Factory.Create is called, it will instantiate
-    // this prefab and then search it for the Asteroid component
-    .FromComponentInNewPrefab(_cardView)
-    // We can also tell Zenject what to name the new gameobject here
-    .WithGameObjectName("Card");
-    // GameObjectGroup's are just game objects used for organization
-    // This is nice so that it doesn't clutter up our scene hierarchy
-    //.UnderTransformGroup("Cards");
+        Container.BindFactory<CardView, CardView.Factory>().FromComponentInNewPrefab(_cardView).WithGameObjectName("Card");
     }
 }

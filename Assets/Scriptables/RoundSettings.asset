@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5239833ce713c224e97395fe365341d3, type: 3}
   m_Name: RoundSettings
   m_EditorClassIdentifier: 
+  _cardsAmount: 20
   _showFrontOnStartOfRound: 1
-  _matchAction: 1
+  _hideCardsOnMatch: 1
   _roundStartRevealDuration: 10
   _cardRevealOnPairFailDuration: 0
   _hintRevealDuration: 10
   _baseRoundDuration: 30
-  _roundDurationIncrement: 20
+  _additionalRoundDurationPerCard: 20

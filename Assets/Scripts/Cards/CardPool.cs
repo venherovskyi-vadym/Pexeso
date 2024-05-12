@@ -1,6 +1,3 @@
-using Zenject.Asteroids;
-using Zenject;
-using UnityEngine.Pool;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -9,12 +6,12 @@ public class CardPool
     private readonly CardView.Factory _cardViewFactory;
     private readonly CardModel.Factory _cardModelFactory;
     private readonly CardCollection _cardCollection;
-    private readonly Transform _cardsParent;
+    private readonly CardsHolders _cardsParent;
     private readonly Stack<CardPresenter> _cardStack = new Stack<CardPresenter>();
 
     public int CardsVariantsCount => _cardCollection.CardsCount;
 
-    public CardPool(CardView.Factory cardViewFactory, CardModel.Factory cardModelFactory, CardCollection cardCollection, Transform cardsParent)
+    public CardPool(CardView.Factory cardViewFactory, CardModel.Factory cardModelFactory, CardCollection cardCollection, CardsHolders cardsParent)
     {
         _cardViewFactory = cardViewFactory;
         _cardModelFactory = cardModelFactory;
@@ -29,8 +26,9 @@ public class CardPool
             var presenter = _cardStack.Pop();
             presenter.Model.IsOnFront = isOnFront;
             presenter.Model.CardId = cardId;
-            ResetView( presenter.View);
-            return _cardStack.Pop();
+            ResetView(presenter.View);
+            presenter.UpdateFromModel();
+            return presenter;
         }
 
         return Create(isOnFront, cardId);
@@ -38,6 +36,15 @@ public class CardPool
 
     public void ReturnCard(CardPresenter cardPresenter)
     {
+        cardPresenter.Model.IsMatched = false;
+
+        if (cardPresenter.View == null)
+        {
+            return;
+        }
+
+        cardPresenter.View.gameObject.SetActive(false);
+        cardPresenter.View.transform.SetParent(_cardsParent.Pool);
         _cardStack.Push(cardPresenter);
     }
 
@@ -63,7 +70,8 @@ public class CardPool
 
     private void ResetView(CardView cardView)
     {
-        cardView.transform.SetParent(_cardsParent);
+        cardView.gameObject.SetActive(true);
+        cardView.transform.SetParent(_cardsParent.Grid);
         cardView.transform.localScale = Vector3.one;
         cardView.transform.localPosition = Vector3.zero;
     }

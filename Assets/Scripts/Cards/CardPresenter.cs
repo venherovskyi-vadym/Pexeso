@@ -6,6 +6,7 @@ public class CardPresenter
 {
     private CardModel _model;
     private CardView _view;
+    private CardCollection _cardCollection;
     private bool _blockCardTurning;
 
     public CardModel Model => _model;
@@ -16,9 +17,15 @@ public class CardPresenter
     {
         _model = model;
         _view = view;
-        _view.InitCardBack(cardCollection.GetCardBack());
-        _view.InitCardFront(cardCollection.GetCardSprite(_model.CardId), _model.CardId);
+        _cardCollection = cardCollection;
         _view.OnClick += CardClicked;
+        UpdateFromModel(); 
+    }
+
+    public void UpdateFromModel()
+    {
+        _view.InitCardBack(_cardCollection.GetCardBack());
+        _view.InitCardFront(_cardCollection.GetCardSprite(_model.CardId), _model.CardId);
 
         if (_model.IsOnFront)
         {
@@ -36,6 +43,12 @@ public class CardPresenter
         _model.IsOnFront = false;
     }
 
+    public void TurnToFront()
+    {
+        _view.TurnToFront();
+        _model.IsOnFront = true;
+    }
+
     public void DisableButton()
     {
         _blockCardTurning = true;
@@ -44,6 +57,11 @@ public class CardPresenter
     public void EnableButton()
     {
         _blockCardTurning = false;
+    }
+
+    public void SetInteractableButton(bool interactable)
+    {
+        View.SetInteractableButton(interactable);
     }
 
     public UniTask WaitTurnComplete()

@@ -1,25 +1,15 @@
 using UnityEngine;
 using Zenject;
-using Zenject.Asteroids;
 
 public class MainInstaller : MonoInstaller
 {
-    [SerializeField] private Transform _cardsPatent;
-
-    private GameController _gameController;
+    [SerializeField] private CardsHolders _cardsHolders;
 
     public override void InstallBindings()
     {
-        Container.Bind<GameController>().AsSingle();
-        Container.BindFactory<CardModel, CardModel.Factory>().AsSingle();// .WhenInjectedInto<CardFactory>();
-        //Container.BindFactory<CardView, CardView.Factory>().WhenInjectedInto<CardFactory>();
-        Container.BindInstance<Transform>(_cardsPatent).WhenInjectedInto<CardPool>();
+        Container.Bind<GamePresenter>().AsSingle().NonLazy();
+        Container.BindFactory<CardModel, CardModel.Factory>().AsSingle();
         Container.Bind<CardPool>().AsSingle();
-        _gameController = Container.Resolve<GameController>();
-    }
-
-    private void OnDestroy()
-    {
-        _gameController.Dispose();
+        Container.BindInstance(_cardsHolders);
     }
 }

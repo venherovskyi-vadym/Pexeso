@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RoundSettings", menuName = "RoundSettings")]
-public class RoundSettings : ScriptableObject, ISettings, ISettingsStorage
+public class RoundSettingsSerialized: ISettings, ISettingsStorage
 {
     [SerializeField, Header("Cards amount to place")] private int _cardsAmount;
     [SerializeField, Header("If checked reveals cards on start of round")] private bool _showFrontOnStartOfRound;
