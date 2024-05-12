@@ -1,32 +1,33 @@
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class JsonSettingsStorage : ISettings, ISettingsStorage
+public class BinarySettingsStorage : ISettings, ISettingsStorage
 {
-    private const string _fileName = "settings.json";
+    private const string _fileName = "settings.bin";
     private RoundSettingsSerialized _settings;
-    public int CardsAmount 
+    public int CardsAmount
     {
         get => _settings.CardsAmount;
-        set 
+        set
         {
             _settings.CardsAmount = value;
             Save();
         }
     }
 
-    public bool ShowFrontOnStartOfRound 
+    public bool ShowFrontOnStartOfRound
     {
         get => _settings.ShowFrontOnStartOfRound;
-        set 
+        set
         {
             _settings.ShowFrontOnStartOfRound = value;
             Save();
         }
     }
 
-    public bool HideCardsOnMatch 
-    { 
+    public bool HideCardsOnMatch
+    {
         get => _settings.HideCardsOnMatch;
         set
         {
@@ -35,7 +36,7 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
         }
     }
 
-    public float RoundStartRevealDuration 
+    public float RoundStartRevealDuration
     {
         get => _settings.RoundStartRevealDuration;
         set
@@ -45,8 +46,8 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
         }
     }
 
-    public float HintRevealDuration 
-    { 
+    public float HintRevealDuration
+    {
         get => _settings.HintRevealDuration;
         set
         {
@@ -55,27 +56,27 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
         }
     }
 
-    public float CardRevealOnPairFailDuration 
+    public float CardRevealOnPairFailDuration
     {
         get => _settings.CardRevealOnPairFailDuration;
-        set 
+        set
         {
             _settings.CardRevealOnPairFailDuration = value;
             Save();
         }
     }
 
-    public float BaseRoundDuration 
+    public float BaseRoundDuration
     {
         get => _settings.BaseRoundDuration;
-        set 
-        { 
+        set
+        {
             _settings.BaseRoundDuration = value;
             Save();
         }
     }
 
-    public float RoundDurationIncrementPerCard 
+    public float RoundDurationIncrementPerCard
     {
         get => _settings.RoundDurationIncrementPerCard;
         set
@@ -90,7 +91,7 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
         return _settings.GetRoundDuration(cardPairs);
     }
 
-    public JsonSettingsStorage()
+    public BinarySettingsStorage()
     {
         _settings = GetSettingsFromPersistentData();
     }
@@ -117,7 +118,7 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
 
     private RoundSettingsSerialized GetSettingsFromFileInfo(FileInfo fileInfo)
     {
-        if (fileInfo.Extension != ".json")
+        if (fileInfo.Extension != ".bin")
         {
             return null;
         }
@@ -127,7 +128,12 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
 
         try
         {
-            settings = JsonUtility.FromJson<RoundSettingsSerialized>(json);
+            using (var stream = new FileStream(fileInfo.FullName, FileMode.Open))
+            {
+                var formatter = new BinaryFormatter();
+                var obj = formatter.Deserialize(stream);
+                settings = obj as RoundSettingsSerialized;
+            }
         }
         catch
         {
@@ -146,6 +152,10 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
             Directory.CreateDirectory(Application.persistentDataPath);
         }
 
-        File.WriteAllText(path, JsonUtility.ToJson(_settings));
+        using (var stream = new FileStream(path, FileMode.OpenOrCreate))
+        {
+            var formatter = new BinaryFormatter();
+            formatter.Serialize(stream, _settings);
+        }
     }
 }

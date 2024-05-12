@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class RoundSettingsSerialized: ISettings, ISettingsStorage
 {
     [SerializeField, Header("Cards amount to place")] private int _cardsAmount;

@@ -15,7 +15,8 @@ public class ScriptableInstaller : ScriptableObjectInstaller<ScriptableInstaller
         //Container.Bind<ISettings>().FromInstance(_roundSettings);
         //Container.Bind<ISettingsStorage>().FromInstance(_roundSettings);
         //Container.BindInterfacesAndSelfTo<PlayerPrefsStorage>().AsSingle();
-        Container.BindInterfacesAndSelfTo<JsonSettingsStorage>().AsSingle();
+        //Container.BindInterfacesAndSelfTo<JsonSettingsStorage>().AsSingle();
+        Container.BindInterfacesAndSelfTo<BinarySettingsStorage>().AsSingle();
 
         Container.BindFactory<CardView, CardView.Factory>().FromComponentInNewPrefab(_cardView).WithGameObjectName("Card");
     }
