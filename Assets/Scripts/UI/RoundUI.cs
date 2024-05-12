@@ -52,7 +52,7 @@ public class RoundUI : MonoBehaviour
 
     public void UpdateRemainingTime(float remainingTime)
     {
-        _remainingRoundTime.text = remainingTime.ToString();
+        _remainingRoundTime.text = TimeSpan.FromSeconds(remainingTime).ToString(@"m\:ss");
     }
     public void UpdateMatchedCards(int matchedCards)
     {
