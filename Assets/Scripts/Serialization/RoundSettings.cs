@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RoundSettings", menuName = "RoundSettings")]
@@ -20,6 +21,15 @@ public class RoundSettings : ScriptableObject, ISettings, ISettingsStorage
     public float CardRevealOnPairFailDuration { get => _cardRevealOnPairFailDuration; set => _cardRevealOnPairFailDuration = value; }
     public float BaseRoundDuration { get => _baseRoundDuration; set => _baseRoundDuration = value; }
     public float RoundDurationIncrementPerCard { get => _additionalRoundDurationPerCard; set => _additionalRoundDurationPerCard = value; }
-
     public float GetRoundDuration(int cardPairs) => _baseRoundDuration + _additionalRoundDurationPerCard * cardPairs;
+
+    public void FixNegativeSettings()
+    {
+        CardsAmount = Math.Max(2, CardsAmount);
+        BaseRoundDuration = Math.Max(0, BaseRoundDuration);
+        RoundDurationIncrementPerCard = Math.Max(0, RoundDurationIncrementPerCard);
+        RoundStartRevealDuration = Math.Max(0, RoundStartRevealDuration);
+        HintRevealDuration = Math.Max(0, HintRevealDuration);
+        CardRevealOnPairFailDuration = Math.Max(0, CardRevealOnPairFailDuration);
+    }
 }

@@ -10,6 +10,7 @@ public class ScriptableInstaller : ScriptableObjectInstaller<ScriptableInstaller
 
     public override void InstallBindings()
     {
+        _roundSettings.FixNegativeSettings();
         Container.BindInstance(_cardCollection);
         Container.BindInstance(_roundSettings);
         //Container.Bind<ISettings>().FromInstance(_roundSettings);

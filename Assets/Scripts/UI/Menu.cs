@@ -121,7 +121,7 @@ public class Menu : MonoBehaviour
     {
         if (int.TryParse(arg0, out var cardsAmount))
         {
-            _settingsStorage.CardsAmount = Math.Max(0, cardsAmount);
+            _settingsStorage.CardsAmount = Math.Max(2, cardsAmount);
         }
     }
 

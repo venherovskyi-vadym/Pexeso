@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerPrefsStorage : ISettings, ISettingsStorage
@@ -55,7 +56,7 @@ public class PlayerPrefsStorage : ISettings, ISettingsStorage
         get => PlayerPrefs.GetFloat(GetPrefsKey(_roundStartRevealDuration), 10);
         set 
         { 
-            PlayerPrefs.SetFloat(GetPrefsKey(_roundStartRevealDuration), value);
+            PlayerPrefs.SetFloat(GetPrefsKey(_roundStartRevealDuration), Math.Max(0, value));
             PlayerPrefs.Save();
         }
     }
@@ -65,7 +66,7 @@ public class PlayerPrefsStorage : ISettings, ISettingsStorage
         get => PlayerPrefs.GetFloat(GetPrefsKey(_hintRevealDuration), 10);
         set
         {
-            PlayerPrefs.SetFloat(GetPrefsKey(_hintRevealDuration), value);
+            PlayerPrefs.SetFloat(GetPrefsKey(_hintRevealDuration), Math.Max(0, value));
             PlayerPrefs.Save();
         }
     }
@@ -75,7 +76,7 @@ public class PlayerPrefsStorage : ISettings, ISettingsStorage
         get => PlayerPrefs.GetFloat(GetPrefsKey(_cardRevealOnPairFailDuration), 0);
         set
         {
-            PlayerPrefs.SetFloat(GetPrefsKey(_cardRevealOnPairFailDuration), value);
+            PlayerPrefs.SetFloat(GetPrefsKey(_cardRevealOnPairFailDuration), Math.Max(0, value));
             PlayerPrefs.Save();
         }
     }
@@ -85,7 +86,7 @@ public class PlayerPrefsStorage : ISettings, ISettingsStorage
         get => PlayerPrefs.GetFloat(GetPrefsKey(_baseRoundDuration), 30);
         set
         {
-            PlayerPrefs.SetFloat(GetPrefsKey(_baseRoundDuration), value);
+            PlayerPrefs.SetFloat(GetPrefsKey(_baseRoundDuration), Math.Max(0, value));
             PlayerPrefs.Save();
         }
     }
@@ -95,7 +96,7 @@ public class PlayerPrefsStorage : ISettings, ISettingsStorage
         get => PlayerPrefs.GetFloat(GetPrefsKey(_additionalRoundDurationPerCard), 10);
         set
         {
-            PlayerPrefs.SetFloat(GetPrefsKey(_additionalRoundDurationPerCard), value);
+            PlayerPrefs.SetFloat(GetPrefsKey(_additionalRoundDurationPerCard), Math.Max(0, value));
             PlayerPrefs.Save();
         }
     }
@@ -105,7 +106,7 @@ public class PlayerPrefsStorage : ISettings, ISettingsStorage
         get => PlayerPrefs.GetInt(GetPrefsKey(_cardsAmount), 30);
         set
         {
-            PlayerPrefs.SetInt(GetPrefsKey(_cardsAmount), value);
+            PlayerPrefs.SetInt(GetPrefsKey(_cardsAmount), Math.Max(2, value));
             PlayerPrefs.Save();
         }
     }

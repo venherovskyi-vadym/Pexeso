@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -93,6 +94,12 @@ public class JsonSettingsStorage : ISettings, ISettingsStorage
     public JsonSettingsStorage()
     {
         _settings = GetSettingsFromPersistentData();
+        _settings.CardsAmount = Math.Max(2, _settings.CardsAmount);
+        _settings.BaseRoundDuration = Math.Max(0, _settings.BaseRoundDuration);
+        _settings.RoundDurationIncrementPerCard = Math.Max(0, _settings.RoundDurationIncrementPerCard);
+        _settings.RoundStartRevealDuration = Math.Max(0, _settings.RoundStartRevealDuration);
+        _settings.HintRevealDuration = Math.Max(0, _settings.HintRevealDuration);
+        _settings.CardRevealOnPairFailDuration = Math.Max(0, _settings.CardRevealOnPairFailDuration);
     }
 
     private RoundSettingsSerialized GetSettingsFromPersistentData()
