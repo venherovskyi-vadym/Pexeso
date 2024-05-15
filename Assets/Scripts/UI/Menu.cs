@@ -81,7 +81,7 @@ public class Menu : MonoBehaviour
     {
         if (float.TryParse(arg0, out var cardRevealOnStartDuration))
         {
-            _settingsStorage.RoundStartRevealDuration = cardRevealOnStartDuration;
+            _settingsStorage.RoundStartRevealDuration = Math.Max(0, cardRevealOnStartDuration);
         }
     }
 
@@ -89,7 +89,7 @@ public class Menu : MonoBehaviour
     {
         if (float.TryParse(arg0, out var cardRevealOnPairFailDuration))
         {
-            _settingsStorage.CardRevealOnPairFailDuration = cardRevealOnPairFailDuration;
+            _settingsStorage.CardRevealOnPairFailDuration = Math.Max(0, cardRevealOnPairFailDuration);
         }
     }
 
@@ -97,7 +97,7 @@ public class Menu : MonoBehaviour
     {
         if (float.TryParse(arg0, out var hintRevealDuration))
         {
-            _settingsStorage.HintRevealDuration = hintRevealDuration;
+            _settingsStorage.HintRevealDuration = Math.Max(0, hintRevealDuration);
         }
     }
 
@@ -105,7 +105,7 @@ public class Menu : MonoBehaviour
     {
         if (float.TryParse(arg0, out var roundDurationIncrementPerCard))
         {
-            _settingsStorage.RoundDurationIncrementPerCard = roundDurationIncrementPerCard;
+            _settingsStorage.RoundDurationIncrementPerCard = Math.Max(0, roundDurationIncrementPerCard);
         }
     }
 
@@ -113,7 +113,7 @@ public class Menu : MonoBehaviour
     {
         if (float.TryParse(arg0, out var baseRoundDuration))
         {
-            _settingsStorage.BaseRoundDuration = baseRoundDuration;
+            _settingsStorage.BaseRoundDuration = Math.Max(0, baseRoundDuration);
         }
     }
 
@@ -121,7 +121,7 @@ public class Menu : MonoBehaviour
     {
         if (int.TryParse(arg0, out var cardsAmount))
         {
-            _settingsStorage.CardsAmount = cardsAmount;
+            _settingsStorage.CardsAmount = Math.Max(0, cardsAmount);
         }
     }
 
