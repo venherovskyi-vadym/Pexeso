@@ -130,7 +130,6 @@ public class BinarySettingsStorage : ISettings, ISettingsStorage
             return null;
         }
 
-        var json = File.ReadAllText(fileInfo.FullName);
         RoundSettingsSerialized settings;
 
         try
